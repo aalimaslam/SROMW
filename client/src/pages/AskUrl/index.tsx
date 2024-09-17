@@ -40,7 +40,7 @@ function AskUrl() {
                 <Button onClick={handleClick}>Find My Business</Button>
             </div>
 
-            <img src="/help.png" className="w-[50vw] m-auto mt-[150px]" alt="Help Image" />
+            <img src="/help.png" className="sm:w-[50vw] w-[99vw] opacity-[0.4] hover:opacity-[1] transition-all m-auto mt-[150px]" alt="Help Image" />
         </div>
     );
 }
