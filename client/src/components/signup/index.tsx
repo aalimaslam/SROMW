@@ -26,16 +26,6 @@ export function Signup() {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          {/* <div className="grid grid-cols-2 gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" placeholder="Max" required />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" placeholder="Robinson" required />
-            </div>
-          </div> */}
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
             <Input

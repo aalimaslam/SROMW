@@ -1,7 +1,7 @@
-import { Card } from "@/components/ui/card";
-import { useState, MouseEvent } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 import { Button } from "../ui/button";
-import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
+import { BiLeftArrow, BiRightArrow, BiSolidStar} from "react-icons/bi";
 import showToast from "@/utils/showToast";
 
 interface CardsState {
@@ -64,11 +64,22 @@ function DashboardReviews() {
             <Card
                 key={id}
                 onClick={() => handleCardClick(id, type)}
-                className={`rounded w-[100%] h-[150px] cursor-pointer ${
+                className={`rounded w-[100%] h-[150px] cursor-pointer flex overflow-hidden items-start justify-start ${
                     selectedCardsSet.includes(id) ? "bg-[#e0e0e0]" : "bg-[#f5f5f5]"
                 }`}
             >
-                {id}
+                <CardHeader className="h-full p-0">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKn-X2ZRRr7DWK4gEnkQFFo_NSpS4dxoS-gg&s" alt="profile" className="h-full object-cover"/>
+                </CardHeader>
+                <CardContent className="w-[90%] my-4">
+                    <CardTitle>
+                        Aalim aslam ({id})
+                    </CardTitle>
+                    <div className="flex items-center gap-[5px] my-2">3<BiSolidStar className="text-yellow-500" /></div>
+                    <CardDescription className="text-[14px]">
+                        this is the best place to get all the things ready this is the best place to get all the things ready this is the best place to get all the things ready
+                    </CardDescription>
+                </CardContent>
             </Card>
         ));
     };
@@ -80,8 +91,9 @@ function DashboardReviews() {
                 className="bg-white rounded-md w-[43%]  p-[10px] flex flex-col justify-start gap-[10px]"
             >
                 <div className="text-2xl font-bold flex items-center gap-[10px]">
-                    Inactive reviews{" "}
+                    Inactive reviews
                     <span className="inline-block rounded-full h-[20px] w-[20px] bg-red-600"></span>
+                    ({cards?.inactive?.length})
                 </div>
                 <div className="flex flex-col gap-[10px]">
                     {renderCardList(cards.inactive, "inactive")}
@@ -102,8 +114,9 @@ function DashboardReviews() {
                 className="bg-white rounded-md w-[43%]  p-[10px] flex flex-col justify-start gap-[10px]"
             >
                 <div className="text-2xl font-bold flex items-center gap-[10px]">
-                    Active reviews{" "}
+                    Active reviews
                     <span className="inline-block rounded-full h-[20px] w-[20px] bg-green-600"></span>
+                    ({cards?.active?.length})
                 </div>
                 <div className="flex flex-col gap-[10px]">
                     {renderCardList(cards.active, "active")}
